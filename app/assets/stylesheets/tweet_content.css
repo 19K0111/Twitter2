@@ -1,0 +1,29 @@
+.reaction{
+    margin: 10px;
+    float: left;
+}
+
+.clear{
+    clear: both;
+}
+
+td{
+    border-bottom: 1px solid;
+}
+
+table{
+    width: 50%;
+}
+
+.flex{
+    display: flex;
+}
+
+.separator{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.content{
+    margin-left: 10%;
+}

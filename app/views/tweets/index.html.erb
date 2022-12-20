@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Tweets</h1>
+<table>
+  <div id="tweets">
+    <tbody>
+      <% @tweets.each do |tweet| %>
+        <tr>
+          <td>
+            <div class="content">
+              <%= render tweet %>
+              <p>
+                <%= link_to "Show this tweet", tweet %>
+              </p>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </div>
+</table>
+
+<%= link_to "New tweet", new_tweet_path %>

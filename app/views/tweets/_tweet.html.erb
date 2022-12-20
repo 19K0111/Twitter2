@@ -1,0 +1,28 @@
+<div id="<%= dom_id tweet %>">
+  <p>
+    <div class="flex">
+      <strong>User:</strong>
+      <%= tweet.user_id %>
+      <!-- @userid -->
+      <div class="separator">-</div>
+      <%= tweet.created_at.to_s(:datetime_jp)%>
+    </div>
+  </p>
+
+  <p>
+    <strong>Content:</strong>
+    <%= tweet.content %>
+  </p>
+
+  <p>
+    <div class="reaction">
+      <strong>👍</strong>
+      <%= tweet.like %>
+    </div>
+    <div class="reaction">
+      <strong>👎</strong>
+      <%= tweet.unlike %>
+    </div>
+  </p>
+  <div class="clear"></div>
+</div>
