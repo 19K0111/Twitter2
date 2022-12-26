@@ -13,3 +13,48 @@
  *= require_tree .
  *= require_self
  */
+
+ //@import "bootstrap";
+
+div#container {
+    background-color: white;
+    margin: 0 auto;
+    padding: 25px 0 0;
+    width: 100%;
+}
+div#header {
+    background-color: cyan;
+    padding-top: 4px;
+    border-top: 4px solid #6bb;
+    position: fixed;
+    width: 99%;
+    top: 0;
+}
+div#left {
+    float: left;
+    width: 25%;
+    background-color: white;
+    padding: 6px 6px 6px 0;
+}
+
+div#right {
+    float: right;
+    width: 70%;
+}
+
+div#right_scroll{
+    background-color: #e8ffff;
+    overflow-y: scroll;
+    height: 100vh;
+}
+div#footer {
+    background-color: white;
+    border-top: 2px lightgreen solid ;
+    text-align: center;
+    clear: both;
+    width: 100%;
+}
+div#menu_bar{
+    color: black;
+}
+

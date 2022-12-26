@@ -1,7 +1,8 @@
+<% @application_name = "Twitter2"%>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MyTwitter</title>
+    <title><%= @application_name %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +12,21 @@
   </head>
 
   <body>
-    <%= yield %>
+  <div id="page_top"></div>
+    <div id="container">
+      <div id="header">
+        <%= render :partial => "shared/menu_bar" %>
+      </div>
+      <div id="left">
+      <!-- Tweet Post Window -->
+        <%= render :partial => "shared/tweet_post_bar" %>
+      </div>
+      <div id="right">
+        <%= yield %>
+      </div>
+      <div id="footer">
+        <%= render :partial => "shared/footer" %>
+      </div>
+    </div>
   </body>
 </html>

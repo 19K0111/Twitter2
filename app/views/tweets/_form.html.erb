@@ -1,14 +1,16 @@
 <%= form_with(model: tweet) do |form| %>
-  <% if tweet.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
+  <% if tweet != nil %>
+    <% if tweet.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
 
-      <ul>
-        <% tweet.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+        <ul>
+          <% tweet.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   <% end %>
 
   <div>
@@ -36,6 +38,6 @@
   </div>-->
 
   <div>
-    <%= form.submit %>
+    <%= form.submit(t("tweet")) %>
   </div>
 <% end %>
