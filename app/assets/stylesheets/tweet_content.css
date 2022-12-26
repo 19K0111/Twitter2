@@ -27,3 +27,24 @@ table{
 .content{
     margin-left: 10%;
 }
+
+.current_user{
+    margin: 10px;
+}
+
+.profile_screen_name{
+    font-size: large;
+    font-weight: bold;
+}
+
+.profile_user_name{
+    color: gray;
+}
+
+.config_profile{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.new_tweet{
+    margin: 10px;
+}

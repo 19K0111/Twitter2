@@ -2,6 +2,12 @@
 ja:
   back_to_top: トップに戻る
   tweet: ツイートする
+  devise:
+    failure:
+      user:
+        unauthenticated: "認証に失敗しました "
+        not_found_in_database: "ユーザが見つかりませんでした "
+        invalid: "メールアドレスまたはパスワードが違います "
   activerecord:
     errors:
       messages:

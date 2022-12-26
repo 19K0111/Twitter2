@@ -17,6 +17,8 @@ Rails.application.configure do
   config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
   config.i18n.default_locale = :ja
 
+  config.action_mailer.default_url_options = {host: "localhost", port: 3000}
+
   # Enable server timing
   config.server_timing = true
 
