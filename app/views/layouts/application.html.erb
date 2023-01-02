@@ -3,25 +3,42 @@
 <html>
   <head>
     <title><%= @application_name %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <%= stylesheet_link_tag 'styles.css' %>
   </head>
 
   <body>
-  <div id="page_top"></div>
-    <div id="container">
-        <div id="header">
+    <div id="page_top"></div>
+    <div id="container" style="padding: 0;">
+        <div id="header" style="position: static;">
             <%= render :partial => "shared/menu_bar" %>
         </div>
-        <div id="log_in">
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
-            <%= yield %>
-        </div>
+        <section class="call-to-action text-white text-center" id="signup">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div> <!-- <div id="log_in"> -->
+                        <p class="notice"><%= notice %></p>
+                        <p class="alert"><%= alert %></p>
+                            <%= yield %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <div id="footer">
             <%= render :partial => "shared/footer" %>
         </div>

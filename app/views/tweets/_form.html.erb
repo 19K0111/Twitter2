@@ -21,10 +21,10 @@
   </div>
 -->
 
-  <div>
+  <div class="tweet_text_area">
     <!-- Tweet -->
     <!-- <%= form.label :content, style: "display: block" %> -->
-    <%= form.text_area :content %>
+    <%= form.text_area :content, size:"40x7" %>
   </div>
 
   <!-- <div>
@@ -39,7 +39,7 @@
     <%= form.number_field :unlike %>
   </div>-->
 
-  <div>
-    <%= form.submit(t("tweet")) %>
+  <div class="tweet_btn">
+    <%= form.submit(t("tweet"), class: "btn btn-primary") %>
   </div>
 <% end %>

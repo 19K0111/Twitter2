@@ -48,3 +48,11 @@ table{
 .new_tweet{
     margin: 10px;
 }
+
+.tweet_btn{
+    margin: 10px 0px 10px 0px;
+}
+
+.tweet_text_area{
+    margin: 10px 0px 10px 0px;
+}

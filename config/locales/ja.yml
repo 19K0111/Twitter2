@@ -2,6 +2,11 @@
 ja:
   back_to_top: トップに戻る
   tweet: ツイートする
+  email: メールアドレス
+  password: パスワード
+  password_min_length: パスワード(%{length}文字以上)
+  password_confirmation: パスワード(確認用)
+  send: 送信
   devise:
     failure:
       user:
