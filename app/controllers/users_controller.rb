@@ -8,6 +8,9 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
+    @follows = Follow.all
+    @follows = Follow.where(user_id: current_user.id)
+    @follow = Follow.where(user_id: current_user.id, follow_user_id: @user.id)
   end
 
   # GET /users/new

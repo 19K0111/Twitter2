@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  put "follows/follow/:id" => "follows#follow", :as => 'follows_follow'
+  put "follows/cancel/:id" => "follows#cancel", :as => 'follows_cancel'
+  resources :follows
   devise_for :users
   get "tweets", :to => "tweets#index", :as => :user_root
   get "users/show"

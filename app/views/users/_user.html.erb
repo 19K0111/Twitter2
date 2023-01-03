@@ -1,22 +1,36 @@
 <div id="<%= dom_id user %>">
-  <p>
+  
+  <!-- <p>
     <strong>Email:</strong>
     <%= user.email %>
+  </p> -->
+
+  <p>
+    <!-- <strong>Screen name:</strong> -->
+    <span class="profile_screen_name text-white"><%= user.screen_name %></span>
   </p>
 
   <p>
-    <strong>Screen name:</strong>
-    <%= user.screen_name %>
+    <!-- <strong>User name:</strong> -->
+    <span class="profile_screen_name text-white">@<%= user.user_name %></span>
   </p>
 
-  <p>
-    <strong>User name:</strong>
-    <%= user.user_name %>
+  <p>    
+    <div class="row">
+        <div class="col">Follows</div>
+        <div class="col">Followers</div>
+        <div class="col">Tweets</div>
+    </div>
+    <div class="row">
+        <div class="col"><%= Follow.where(user_id: @user.id).count %></div>
+        <div class="col"><%= Follow.where(follow_user_id: @user.id).count %></div>
+        <div class="col"><%= Tweet.where(user_id: @user.id).count %></div>
+    </div>
   </p>
 
-  <p>
+  <!-- <p>
     <strong>Language:</strong>
     <%= user.language %>
-  </p>
+  </p> -->
 
 </div>

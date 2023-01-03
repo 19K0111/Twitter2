@@ -7,12 +7,17 @@
       <tbody>
         <% @tweets.each do |tweet| %>
           <tr>
+            <td></td>
             <td>
               <div class="content">
                 <%= render tweet %>
                 <p>
-                  <%= link_to "Show this tweet", tweet %>
+                  <% if current_user.id == tweet.user_id %>
+                  <!-- <%= link_to "Show this tweet", tweet %> -->
+                  <%= button_to "Destroy this tweet", tweet, method: :delete, data: {turbo_confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %>
+                  <% end %>
                 </p>
+                <hr />
               </div>
             </td>
           </tr>

@@ -1,11 +1,25 @@
 <div id="<%= dom_id tweet %>">
   <p>
     <div class="flex">
-      <strong>User:</strong>
-      <%= tweet.user_id %>
-      <!-- @userid -->
-      <div class="separator">-</div>
-      <%= tweet.created_at.to_s(:datetime_jp)%>
+      <% if tweet.user_id != nil %>
+        <% begin %>
+          <div data-toggle="popover" title='<%= link_to(User.find(tweet.user_id).user_name, User.find(tweet.user_id)) %>' data-bs-html="true" data-bs-content="<strong>hoge</strong>">
+                <span class="profile_screen_name"><%= User.find(tweet.user_id).screen_name %></span>
+                <span class="profile_user_name"> @<%= User.find(tweet.user_id).user_name %></span>                
+          </div>
+          <!-- @userid -->
+          <div class="separator">-</div>
+          <%= tweet.created_at.to_s(:datetime_jp)%>
+        <% rescue %>
+          <div data-toggle="popover" title='' data-bs-html="true" data-bs-content="">
+                <span class="profile_screen_name"></span>
+                <span class="profile_user_name"></span>                
+          </div>
+          <!-- @userid -->
+          <div class="separator">-</div>
+          <%= tweet.created_at.to_s(:datetime_jp)%>
+        <% end %>
+      <% end %>
     </div>
   </p>
 

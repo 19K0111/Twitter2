@@ -3,6 +3,18 @@
     <span class="profile_screen_name"><%= current_user.screen_name %></span><br />
     <span class="profile_user_name">@<%= current_user.user_name %></span><br />
 </div>
+<div style="margin-left: 10px;">
+    <div class="row">
+        <div class="col">Follows</div>
+        <div class="col">Followers</div>
+        <div class="col">Tweets</div>
+    </div>
+    <div class="row">
+        <div class="col"><%= Follow.where(user_id: current_user.id).count %></div>
+        <div class="col"><%= Follow.where(follow_user_id: current_user.id).count %></div>
+        <div class="col"><%= Tweet.where(user_id: current_user.id).count %></div>
+    </div>
+</div>
 <div>
     <span class="config_profile"><%= link_to('Sign out', destroy_user_session_path, :method => :delete, data:{turbo_method: :delete}) %></span>
     <span class="config_profile"><%= link_to('Edit your info', edit_user_path(:id => current_user.id)) %></span>

@@ -3,8 +3,31 @@
 <%= render @user %>
 
 <div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= link_to "Back to users", users_path %>
+<div class="row">
+  <% if current_user != nil %>
+    <% if current_user.id != @user.id %>
+      <% if Follow.where(user_id: current_user.id, follow_user_id: @user.id) == [] %>
+        <%= form_tag "/follows/follow/"+@user.id.to_s, :method => 'put' do %>
+          <%= submit_tag "Follow", :name => "Follow", class: "btn btn-secondary" %>
+        <% end %>
+      <% else %>
+        <%= form_tag "/follows/cancel/"+@follow[0].id.to_s, :method => 'put' do %>
+          <%= submit_tag "Following", :name => "Cancel", class: "btn btn-success" %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <% if current_user.id == 1 || current_user.id == @user.id %>
+      <div class="col">
+        <%= link_to "Edit this user", edit_user_path(@user), class: "text-white" %>
+      </div>
+    <% end %>
+  <% end %>
+  <!-- <div class="col">
+    <%= link_to "Back to users", users_path, class: "text-white" %>
+  </div> -->
+</div>
 
-  <%= button_to "Destroy this user", @user, method: :delete %>
+  <% if current_user.id == 1 || current_user.id == @user.id %>
+    <%= button_to "Destroy this user", @user, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %>
+  <% end %>
 </div>

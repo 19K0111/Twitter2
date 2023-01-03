@@ -4,3 +4,5 @@
 //= require bootstrap
 import "@hotwired/turbo-rails"
 import "controllers"
+
+import "./tweet_info.js"
