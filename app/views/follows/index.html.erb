@@ -1,14 +1,37 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Follows</h1>
+    <h1><%= User.find(params[:user_id]).screen_name %></h1>
+<div class="row">
+  <div class="col">
+    <div id="follows">
+    <h2>Follows</h2>
+    <hr />
+      <% @follows.each do |follow| %>
+        <% if params[:user_id].to_i == follow.user_id %>
+          <% @user = User.find(follow.follow_user_id) %>
+          <%= render follow %>
+          <hr />
+        <% end %>
+        <p>
+        </p>
+      <% end %>
+    </div>
+  </div>
 
-<div id="follows">
-  <% @follows.each do |follow| %>
-    <%= render follow %>
-    <p>
-      <%= link_to "Show this follow", follow %>
-    </p>
-  <% end %>
+  <div class="col">
+    <div id="follows">
+      <h2>Followers</h2>
+      <hr />
+      <% @follows.each do |follow| %>
+        <% if params[:user_id].to_i == follow.follow_user_id %>
+          <% @user = User.find(follow.user_id) %>
+          <%= render follow %>
+          <hr />
+        <% end %>
+        <p>
+        </p>
+      <% end %>
+    </div>
+  </div>
 </div>
 
-<%= link_to "New follow", new_follow_path %>

@@ -1,12 +1,18 @@
 <div id="<%= dom_id follow %>">
+<!-- 
   <p>
     <strong>User:</strong>
     <%= follow.user_id %>
   </p>
+ -->
 
   <p>
-    <strong>Follow user:</strong>
-    <%= follow.follow_user_id %>
+    <% @tmp_f = @follow %>
+    <% @follows.each do |follow| %>
+      <% @follow = [follow] %>
+      <%= render template: "users/show" %>
+    <% end %>
+    <% @follow = @tmp_f %>
   </p>
 
 </div>
