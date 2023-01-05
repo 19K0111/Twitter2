@@ -4,17 +4,21 @@
 <div class="row">
   <div class="col">
     <div id="follows">
-    <h2>Follows</h2>
-    <hr />
+      <h2>Follows</h2>
+      <hr />
+      <% @follows = Follow.all%>
+      <% @tmp_f = @follow %>
       <% @follows.each do |follow| %>
+        <% @follow = [follow] %>
         <% if params[:user_id].to_i == follow.user_id %>
           <% @user = User.find(follow.follow_user_id) %>
-          <%= render follow %>
+          <%= render @user %>
           <hr />
         <% end %>
         <p>
         </p>
       <% end %>
+      <% @follow = @tmp_f %>
     </div>
   </div>
 
@@ -22,15 +26,18 @@
     <div id="follows">
       <h2>Followers</h2>
       <hr />
+      <% @tmp_f = @follow %>
       <% @follows.each do |follow| %>
+        <% @follow = [follow] %>
         <% if params[:user_id].to_i == follow.follow_user_id %>
           <% @user = User.find(follow.user_id) %>
-          <%= render follow %>
+          <%= render @user %>
           <hr />
         <% end %>
         <p>
         </p>
       <% end %>
+      <% @follow = @tmp_f %>
     </div>
   </div>
 </div>

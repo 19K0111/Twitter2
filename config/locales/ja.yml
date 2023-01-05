@@ -7,6 +7,8 @@ ja:
   password_min_length: パスワード(%{length}文字以上)
   password_confirmation: パスワード(確認用)
   send: 送信
+  delete: 削除
+  back: 戻る
   devise:
     failure:
       user:

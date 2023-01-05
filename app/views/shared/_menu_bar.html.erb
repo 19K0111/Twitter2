@@ -12,8 +12,18 @@
 <!-- Navigation-->
 <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
-        <%= link_to((t 'Twitter2'), tweets_path, class: "navbar-brand") %>
+        <b><%= link_to((t 'Twitter2'), tweets_path, class: "navbar-brand") %></b>
         <!-- <a class="btn btn-primary" href="#signup">Sign Up</a> -->
+        <% if current_user != nil %>
+            <div class="linkbox">
+                <%= link_to("", User.find(current_user.id)) %>
+                <span class="profile_screen_name"><%= current_user.screen_name %></span>
+                <span class="profile_user_name">@<%= current_user.user_name %></span>
+            </div>
+            <span class="config_profile"><%= link_to('Sign out', destroy_user_session_path, :method => :delete, data:{turbo_method: :delete}) %></span>
+            <span class="config_profile"><%= link_to('Edit your info', edit_user_path(:id => current_user.id)) %></span>
+            <span class="config_profile"><%= link_to 'Change Password', edit_user_registration_path %></span>
+        <% end %>
     </div>
 </nav>
 <!--

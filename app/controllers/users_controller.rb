@@ -52,7 +52,11 @@ class UsersController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
+    Tweet.where(user_id: @user.id).destroy_all
+    Follow.where(user_id: @user.id).destroy_all
+    Follow.where(follow_user_id: @user.id).destroy_all
     @user.destroy
+    return redirect_to(new_user_session_path)
 
     respond_to do |format|
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }

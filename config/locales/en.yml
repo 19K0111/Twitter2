@@ -7,6 +7,8 @@ en:
   password_min_length: Password(%{length} characters minimum)
   password_confirmation: Password confirmation
   send: Send
+  delete: Delete
+  back: Back
   activerecord:
     errors:
       messages:

@@ -3,7 +3,9 @@
     <div class="flex">
       <% if tweet.user_id != nil %>
         <% begin %>
-          <div data-toggle="popover" title='<%= link_to(User.find(tweet.user_id).user_name, User.find(tweet.user_id)) %>' data-bs-html="true" data-bs-content="<strong>hoge</strong>">
+          <!-- <div data-toggle="popover" title='<%= link_to(User.find(tweet.user_id).user_name, User.find(tweet.user_id)) %>' data-bs-html="true" data-bs-content="<strong>hoge</strong>"> -->
+          <div class="linkbox">
+              <%= link_to("", User.find(tweet.user_id)) %>
                 <span class="profile_screen_name"><%= User.find(tweet.user_id).screen_name %></span>
                 <span class="profile_user_name"> @<%= User.find(tweet.user_id).user_name %></span>                
           </div>

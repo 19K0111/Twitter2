@@ -1,23 +1,22 @@
 <!-- <p style="color: green"><%= notice %></p> -->
 
 <div id="right_scroll">
-  <h1 id="tweets">Tweets</h1>
-  <table>
+  <h1 id="tweets" style="margin-left: 10px;">Tweets</h1>
+  <table class="table table-striped">
     <div>
       <tbody>
         <% @tweets.each do |tweet| %>
           <tr>
-            <td></td>
-            <td>
+            <td class="table-info"></td>
+            <td class="table-info">
               <div class="content">
                 <%= render tweet %>
                 <p>
-                  <% if current_user.id == tweet.user_id %>
+                  <% if current_user.id == tweet.user_id || current_user.id == 1 %>
                   <!-- <%= link_to "Show this tweet", tweet %> -->
-                  <%= button_to "Destroy this tweet", tweet, method: :delete, data: {turbo_confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %>
+                  <%= button_to t("delete"), tweet, method: :delete, data: {turbo_confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %>
                   <% end %>
                 </p>
-                <hr />
               </div>
             </td>
           </tr>

@@ -25,7 +25,7 @@ table{
 }
 
 .content{
-    margin-left: 10%;
+    margin-left: 5px;
 }
 
 .current_user{
@@ -51,8 +51,25 @@ table{
 
 .tweet_btn{
     margin: 10px 0px 10px 0px;
+    text-align: right;
 }
 
 .tweet_text_area{
     margin: 10px 0px 10px 0px;
+}
+
+.left_container{
+    margin-left: 10px;
+}
+
+.linkbox{
+    position: relative;
+}
+
+.linkbox a{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }
