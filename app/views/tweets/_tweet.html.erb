@@ -32,12 +32,38 @@
 
   <p>
     <div class="reaction">
-      <strong>👍</strong>
-      <%= tweet.like %>
+      <% @likes = Like.all %>
+      <% if Dislike.where(user_id: current_user.id, tweet_id: tweet.id).exists? %>
+        <button class="btn btn-outline-danger btn-sm text-black" disabled>👍 <%= Like.where(tweet_id: tweet.id).count.to_s %></button>
+      <% else %>      
+        <% if Like.where(user_id: current_user.id, tweet_id: tweet.id).exists? %>
+        <% like = Like.where(user_id: current_user.id, tweet_id: tweet.id)[0] %>
+          <%= form_tag "/likes/cancel/"+like.id.to_s, :method => 'put' do %>
+            <%= submit_tag "👍 "+Like.where(tweet_id: tweet.id).count.to_s, :name => "Cancel", class:"btn btn-danger btn-sm" %>
+          <% end %>
+        <% else %>
+          <%= form_tag "/likes/add/"+tweet.id.to_s, :method => 'put' do %>
+            <%= submit_tag "👍 "+Like.where(tweet_id: tweet.id).count.to_s, :name => "Add", class:"btn btn-outline-danger btn-sm text-black" %>
+          <% end %>
+        <% end %>
+      <% end %>
     </div>
     <div class="reaction">
-      <strong>👎</strong>
-      <%= tweet.unlike %>
+      <% @dislikes = Dislike.all %>
+      <% if Like.where(user_id: current_user.id, tweet_id: tweet.id).exists? %>
+        <button class="btn btn-outline-secondary btn-sm" disabled>👎 <%= Dislike.where(tweet_id: tweet.id).count.to_s %></button>
+      <% else %>      
+        <% if Dislike.where(user_id: current_user.id, tweet_id: tweet.id).exists? %>
+        <% dislike = Dislike.where(user_id: current_user.id, tweet_id: tweet.id)[0] %>
+          <%= form_tag "/dislikes/cancel/"+dislike.id.to_s, :method => 'put' do %>
+            <%= submit_tag "👎 "+Dislike.where(tweet_id: tweet.id).count.to_s, :name => "Cancel", class:"btn btn-secondary btn-sm" %>
+          <% end %>
+        <% else %>
+          <%= form_tag "/dislikes/add/"+tweet.id.to_s, :method => 'put' do %>
+            <%= submit_tag "👎 "+Dislike.where(tweet_id: tweet.id).count.to_s, :name => "Add", class:"btn btn-outline-secondary btn-sm" %>
+          <% end %>
+        <% end %>
+      <% end %>
     </div>
   </p>
   <div class="clear"></div>

@@ -1,12 +1,15 @@
 <% if current_user %>
 <div class="current_user">
-    <span class="profile_screen_name"><%= current_user.screen_name %></span><br />
-    <span class="profile_user_name">@<%= current_user.user_name %></span><br />
+    <div class="linkbox">
+        <%= link_to("", User.find(current_user.id)) %>
+        <span class="profile_screen_name"><%= current_user.screen_name %></span><br />
+        <span class="profile_user_name">@<%= current_user.user_name %></span><br />
+    </div>
 </div>
 <div style="margin-left: 10px; text-align: center;">
     <div class="row">
-        <div class="col">Follows</div>
-        <div class="col">Followers</div>
+        <div class="col"><a href="<%= root_url+"users/"+current_user.id.to_s %>/follows">Follows</a></div>
+        <div class="col"><a href="<%= root_url+"users/"+current_user.id.to_s %>/follows">Followers</a></div>
         <div class="col">Tweets</div>
     </div>
     <div class="row">

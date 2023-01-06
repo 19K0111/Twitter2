@@ -1,0 +1,5 @@
+<h1><%= User.where(id: params[:user_id].to_i)[0].screen_name %>'s Likes</h1>
+<% @likes.each do |like|%>
+    <%= render Tweet.where(id: like.tweet_id) %>
+<% end %>
+

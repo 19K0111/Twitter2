@@ -1,0 +1,7 @@
+<h1><%= User.where(id: params[:user_id].to_i)[0].screen_name %>'s Dislikes</h1>
+<% @dislikes.each do |dislike|%>
+    <%= render Tweet.where(id: dislike.tweet_id) %>
+<% end %>
+<% if params[:user_id].to_i != current_user.id %>
+    Dislikes can only be seen by this user.
+<% end %>
