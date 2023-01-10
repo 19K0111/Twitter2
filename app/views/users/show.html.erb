@@ -26,7 +26,11 @@
     </div> -->
   </div>
 
-  <% if current_user.id == 1 || current_user.id == @user.id %>
-    <%= button_to "Delete this account", @user, method: :delete, data: {turbo_confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %>
+  <% if current_user.id == 1 || current_user.id == @user.id %>  
+    <% if current_user.id == 1 && 1 == @user.id %>
+      <!-- Admin user's account cannot delete here -->
+    <% else %>
+      <%= button_to "Delete this account", @user, method: :delete, data: {turbo_confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %>
+    <% end %>
   <% end %>
 </div>
